@@ -1,0 +1,82 @@
+
+Stage 1--  Setting up a local repository with (Staging ,Committing and logging
+           -------------------------------------------------------------------
+
+All Git Commands with Steps........
+
+Step 1 - install Git or git bash
+Step 2 - go to project directory & open git bash here
+Step 3 - let's check whether any local repositories created or not type -> 		$ git status
+Step 4 - to initialize a local repository type  ->		$ git init		Initialized empty Git repo. in C:/IdeaProjects/git-demo/.git/
+Step 5 - now let's check changes in our code      ->  $ git status
+Step 6 - add all changes to our staging index	  ->  $ git add .		if you want to add all the files and changes in staging index
+Step 7 - we need to commit our changes to a local repo.  ->  $ git commit -m "added ..."       now it will add our files to our local repository.
+Step 8 - now let's check the log   -> $ git log
+Step 9 - from log easily we can identify what all changes and total how many commits are done in proj.   
+		 ->$ git log
+		 
+		  commit e47507a61ebe8e9d8c2a4c63fed6068bf608eb2b (HEAD -> master)
+		  Author: Kaushal Kumar <kaushal_kumar1@persistent.com>
+		  Date:   Thu Feb 22 14:19:10 2024 +0530
+		  added if condition to check the data
+
+		  commit 2294b5782eb1510fe37fbeac5586c011cd4de733
+		  Author: Kaushal Kumar <kaushal_kumar1@persistent.com>
+		  Date:   Thu Feb 22 14:07:31 2024 +0530
+		  added git-demo project to local repo
+		  
+		  Summary - 
+		  *** now our code is in our local repository. so this is the way we can push our changes to a local repository and we can log and track the changes  or commit changes.
+
+Step 10 - now we need to move our changes from local repository to remote repository. Let's push local repository changes to Remote Repository. In 			Project Directory open git bash here
+Step 11 - need to set Local Repo. to Remote Repo. through Command Line. -> $ git remote add origin https://github.com/kaushal8707/git-demo.git		
+Step 12 - now we set the origin to our remote repository. now we need to push our changes now.
+Step 13 - now Let's push the changes now to Remote Repository   	-> $  git push -u origin master
+
+
+Stage 	2--  Git checkout/clone and git update/pull
+			 ---------------------------------------
+			 
+Step 14 - let's see how we can checkout the code or how we can take an update/pull. Earlier we have seen how to move code from local repo to remote repo.When u joined any org they provided the link for the repo and asked to do the local setup let's see how we can do or how you can checkout.
+
+Step 15 - go to the workspace and open git bash here. (u have the repo link)      ->    $ git clone https://github.com/kaushal8707/git-demo.git
+Step 16 - whetever the code avails to ur remote repository it came to your local repository.
+	      now we have the code we can import to our intellij and we can work on it. assume few more developer is working on to the same repository. suppose one developer done some changes and push his changes to the remote repository. so let's do some changes manually on git remote repo so that using git pull we can take the update in our local repository. 
+Step 17 - I was unknowing about the changes done on remote repo. so how that changes will reflect in my local. so for that 
+          go to your working directory and open git bash here.
+	      now we are in our local repository		->    $ git pull origin master    - we want to pull from origin master branch
+Step 18 - Note - to avoid the conflict always before pushing the changes to remote repository first take the pull.
+
+
+Stage 3-- Git Branch & Merge (We will see How to create a seperate Branch in git and How we can merged it to a master branch)
+		  ------------------------------------------------------------------------------------------------------------------
+
+Step 19 - go to current working directory and open git bash here
+Step 20 - Let's check a branch first		
+			-> $ git branch
+			* master  - only one branch is there that is the master branch
+Step 21 - Let's create a new branch
+			-> $ git branch phase2	- now phase2 branch is created
+Step 22 - Let's check the available branch
+			-> $ git branch
+	           * master
+                 phase2	-we can see we are having 2 branch now. but currently we are in master branch now. let's move to the phase2 branch.
+Step 23 - Let's switch the branch form master to phase2
+			-> $ git checkout phase2
+				Switched to branch 'phase2'
+Step 24 - Now let's check the branch 
+			-> $ git branch
+				 master
+			   * phase2 -so we moved to our phase2 branch, so we are in phase2 branch.
+Step 25 - now let's commit and push our changes to our newly created branch phase2 then we will raise pull REQ and merge
+	   $ git status
+	   $ git add .
+	   $ git status
+	   $ git commit -m "added Constant file"
+       $ git push origin phase2
+Step 26 - Now we are in a phase2 branch in local machine we have to move to master and take a pull then only changes will be reflect in master in 	  local machine and then delete the branch phase2
+	   $ git checkout master
+	   $ git branch
+	   $ git pull
+	   $ git push origin --delete phase2
+	   
